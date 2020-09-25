@@ -13,7 +13,7 @@ class Pet extends React.Component {
       )
     } else {
       return (
-        <button className="ui primary button" onClick={this.props.onAdoptPet.bind(this, this.props.pet.id)}>Adopt pet</button>
+        <button className="ui primary button" onClick={() => this.props.onAdoptPet(this.props.pet.id)}>Adopt pet</button>
       )
     }
   }

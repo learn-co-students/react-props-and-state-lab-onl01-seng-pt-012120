@@ -43,7 +43,26 @@ class App extends React.Component {
   }
 
   onAdoptPet = id => {
-    console.log('adopted', id)
+    let petIndex = this.state.pets.findIndex(pet => pet.id === id)
+    let pets = [...this.state.pets]
+
+    pets[petIndex] = {
+      ...pets[petIndex], 
+      isAdopted: true
+    }
+
+    this.setState({
+      pets: pets
+    })
+
+    // SOLUTION:
+    // making a copy of the pets array, 
+    // and changing the one member whose ID matches the id argument
+    // all other pet members remain the same
+    // const pets = this.state.pets.map(p => {
+    //   return p.id === petId ? { ...p, isAdopted: true } : p;
+    // });
+    // this.setState({ pets: pets });
   }
 
   render() {

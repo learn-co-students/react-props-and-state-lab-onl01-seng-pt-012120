@@ -1,14 +1,6 @@
 import React from 'react'
 
 class Pet extends React.Component {
-  constructor(props) {
-    super()
-
-    this.state = {
-     isAdopted: props.pet.isAdopted
-    }
-
-  }
 
   handleAdopt = event => {
     // console.log(event.target)
@@ -17,7 +9,7 @@ class Pet extends React.Component {
 
   renderAdoptionBtn = () => {
     let btn
-    btn = this.state.isAdopted ? <button className="ui disabled button">Already adopted</button> : <button className="ui primary button" onClick={this.handleAdopt} >Adopt pet</button>
+    btn = this.props.pet.isAdopted ? <button className="ui disabled button">Already adopted</button> : <button className="ui primary button" onClick={this.handleAdopt} >Adopt pet</button>
 
     return btn
   }

@@ -15,6 +15,56 @@ class App extends React.Component {
     }
   }
 
+  updateFilters = event => {
+    this.setState({
+      filters: {
+        ...this.state.filters,
+        type: event.target.value
+      }
+    })
+  }
+
+  updatePets = petsArr => {
+    this.setState({
+      pets: petsArr
+    })
+  }
+
+  onFindPetsClick = event => {
+    let params = ''
+
+    params = this.state.filters.type === 'all' ? params : "?type=" + this.state.filters.type
+    
+    console.log(params)
+
+    fetch(`/api/pets${params}`)
+      .then(res => res.json())
+      .then(json => this.updatePets(json))
+  }
+
+  onAdoptPet = id => {
+    let petIndex = this.state.pets.findIndex(pet => pet.id === id)
+    let pets = [...this.state.pets]
+
+    pets[petIndex] = {
+      ...pets[petIndex], 
+      isAdopted: true
+    }
+
+    this.setState({
+      pets: pets
+    })
+
+    // SOLUTION:
+    // making a copy of the pets array, 
+    // and changing the one member whose ID matches the id argument
+    // all other pet members remain the same
+    // const pets = this.state.pets.map(p => {
+    //   return p.id === petId ? { ...p, isAdopted: true } : p;
+    // });
+    // this.setState({ pets: pets });
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -24,10 +74,10 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters />
+              <Filters onChangeType={this.updateFilters} type={this.state.filters.type} updatePets={this.updatePets} onFindPetsClick={this.onFindPetsClick} />
             </div>
             <div className="twelve wide column">
-              <PetBrowser />
+              <PetBrowser pets={this.state.pets} onAdoptPet={this.onAdoptPet} />
             </div>
           </div>
         </div>

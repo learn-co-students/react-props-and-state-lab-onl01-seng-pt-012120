@@ -12,6 +12,7 @@ class PetBrowser extends React.Component {
   }
   
   render() {
+    debugger
     return (
     <div className="ui cards">
       {this.state.pets.forEach(pet=><Pet id={pet.id} type={pet.type} gender={pet.gender} age={pet.age} weight={pet.weight} name={pet.name} isAdopted={pet.isAdopted} onAdoptPet={this.onAdoptPet}/>)}

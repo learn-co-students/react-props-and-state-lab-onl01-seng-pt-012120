@@ -54,6 +54,7 @@ class App extends React.Component {
   }
   
   render() {
+    debugger
     return (
       <div className="ui container">
         <header>
@@ -68,7 +69,7 @@ class App extends React.Component {
             </div>
             <div className="twelve wide column">
               <PetBrowser 
-              onAdoptPet={this.onAdoptPet}
+              onAdoptPet={this.state.onAdoptPet}
               pets={this.state.pets}/>
             </div>
           </div>

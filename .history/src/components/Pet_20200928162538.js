@@ -18,7 +18,7 @@ class Pet extends React.Component {
         <div className="content">
           <a className="header">
             {this.state.name}
-            {this.state.gender === 'female' ? '♀' : '♂'} {/ * '♀' OR '♂' * /}
+            {this.state.gender === 'female' ? <p>'♀'</p> :<p>'♂'</p >} {/ * '♀' OR '♂' * /}
           </a>
           <div className="meta">
             <span className="date">{this.state.type}</span>

@@ -15,7 +15,7 @@ class Filters extends React.Component {
   }
 
   onClick=(e)=>{
-    this.state.onFindPetsClick(e)
+    this.state.onFindPetsClick
   }
   
   render() {

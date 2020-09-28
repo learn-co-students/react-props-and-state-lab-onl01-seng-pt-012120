@@ -17,7 +17,7 @@ class Pet extends React.Component {
       <div className="card">
         <div className="content">
           <a className="header">
-            {this.state.name}
+            {this.props.name}
             {this.state.gender === 'female' ? '♀' : '♂'} {/ * '♀' OR '♂' * /}
           </a>
           <div className="meta">

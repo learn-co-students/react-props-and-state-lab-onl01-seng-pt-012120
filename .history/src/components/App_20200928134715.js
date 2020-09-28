@@ -19,7 +19,7 @@ class App extends React.Component {
     this.setState({
       ...this.state,
       filters:{
-        type: e.target.value
+        type: this.state.type
       }
     })
   }
@@ -69,7 +69,7 @@ class App extends React.Component {
             <div className="twelve wide column">
               <PetBrowser 
               onAdoptPet={this.onAdoptPet}
-              pets={this.state.pets}/>
+              pets={this.pets}/>
             </div>
           </div>
         </div>

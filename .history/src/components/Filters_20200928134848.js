@@ -12,10 +12,12 @@ class Filters extends React.Component {
 
   onChange=(e)=>{
     this.state.onChangeType(e)
-  }
-
-  onClick=(e)=>{
-    this.state.onFindPetsClick(e)
+    // setState({
+    //   ...this.state,
+    //   filter:{
+    //     type: e.target.value
+    //   }
+    // })
   }
   
   render() {
@@ -33,7 +35,7 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button className="ui secondary button" onClick={this.onClick}>Find pets</button>
+          <button className="ui secondary button" onFindPetsClick={this.onFindPetsClick}>Find pets</button>
         </div>
       </div>
     )

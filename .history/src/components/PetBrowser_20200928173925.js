@@ -6,11 +6,9 @@ class PetBrowser extends React.Component {
   
   render() {
     // debugger
-    const cards = this.props.pets.map(pet=><Pet key={pet.id} pet={pet} onAdoptPet={this.props.onAdoptPet}/>)
-
     return (
     <div className="ui cards">
-      {cards}
+      {this.props.pets.forEach(pet=><Pet id={pet.id} type={pet.type} gender={pet.gender} age={pet.age} weight={pet.weight} name={pet.name} isAdopted={pet.isAdopted} onAdoptPet={this.props.onAdoptPet}/>)}
       {/* <Pet /> */}
     </div>
     )

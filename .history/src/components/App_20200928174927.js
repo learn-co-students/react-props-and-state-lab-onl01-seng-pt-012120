@@ -17,6 +17,7 @@ class App extends React.Component {
 
   onChangeType=(e)=>{
     this.setState({
+      ...this.state,
       filters:{
         type: e.target.value
       }
@@ -42,18 +43,19 @@ class App extends React.Component {
 
   onAdoptPet=(e)=>{
     const pet = this.state.pets.filter(pet => pet.id === e)[0]
-    // debugger
     pet.isAdopted = !pet.isAdopted
     this.setState({
+      ...this.state,
       pets: [
-        ...this.state.pets,
+        ...this.state,
+        pet
       ]
     })
-    // debugger
 
   }
   
   render() {
+    fetch('/api/pets').then(resp => resp.json()).then(json => this.addPets(json))
     return (
       <div className="ui container">
         <header>
@@ -77,7 +79,5 @@ class App extends React.Component {
     )
   }
 }
-
-
 
 export default App

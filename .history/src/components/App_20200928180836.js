@@ -17,6 +17,7 @@ class App extends React.Component {
 
   onChangeType=(e)=>{
     this.setState({
+      ...this.state,
       filters:{
         type: e.target.value
       }
@@ -41,15 +42,15 @@ class App extends React.Component {
   }
 
   onAdoptPet=(e)=>{
-    const pet = this.state.pets.filter(pet => pet.id === e)[0]
-    // debugger
+    const pet = this.state.pets.filter(pet => pet.key === e)[0]
     pet.isAdopted = !pet.isAdopted
     this.setState({
+      ...this.state,
       pets: [
-        ...this.state.pets,
+        ...this.state,
+        pet
       ]
     })
-    // debugger
 
   }
   

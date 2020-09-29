@@ -42,14 +42,14 @@ class App extends React.Component {
 
   onAdoptPet=(e)=>{
     const pet = this.state.pets.filter(pet => pet.id === e)[0]
-    // debugger
     pet.isAdopted = !pet.isAdopted
     this.setState({
       pets: [
-        ...this.state.pets,
+        ...this.state,
+        pet
       ]
     })
-    // debugger
+    debugger
 
   }
   
